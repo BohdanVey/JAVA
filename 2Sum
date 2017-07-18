@@ -1,0 +1,42 @@
+    #include <algorithm>
+    #include <iostream>
+    int twoSum(int numbers[],int a[], int target,int n) {
+    	if (n == 0){
+    		return 0;
+    	}
+    	int i = 0;
+    	int j = n - 1;
+       std:: sort( numbers, numbers+n);
+    	while (i < j) {
+    		int x = numbers[i] + numbers[j];
+    		if (x < target) {
+    			++i;
+    		} else if (x > target) {
+    			j--;
+    		} else {
+    		    for(int z=0;z<n;z++){
+    		     if(a[z]==i){
+    		      i=z;   
+    		     }
+    		     else if (a[z]==j){
+    		      j=z;   
+    		     }
+    		    }
+    		   std:: cout<<i<<j;
+    			return  x;
+    		}
+    	}
+     
+    	return 0;
+    }
+    int main()
+    {
+      int a[100],n,t,b[2];
+      std::cin>>n>>t;
+      for(int i=0;i<n;i++){
+       std::cin>>a[i];
+      }
+     b[0]=twoSum(a,a,t,n);
+    
+      
+    }
